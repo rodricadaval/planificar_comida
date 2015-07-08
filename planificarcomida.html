@@ -25,31 +25,30 @@
     <!-- Bootstrap select CSS -->
     <link href="css/bootstrap-select.min.css" rel="stylesheet">
     <style type="text/css">
-    body
-    {
+    body {
         font-family: ubuntu;
     }
-    #busqueda_recetas
-    {
-        width: 300px; 
+    
+    #busqueda_recetas {
+        width: 300px;
     }
-    #muestra_recetas
-    {
+    
+    #muestra_recetas {
         min-height: 200px;
     }
-    #elegir_turno
-    {
-        margin-top:50%;
-        font-weight:bold;
-        font-size:40px;
-        font-style:italic;        
-        color:grey;
+    
+    #elegir_turno {
+        margin-top: 50%;
+        font-weight: bold;
+        font-size: 40px;
+        font-style: italic;
+        color: grey;
     }
-    #arrow_left
-    {
-        margin-right:10px; 
-        font-size:40px; 
-        vertical-align:sub;
+    
+    #arrow_left {
+        margin-right: 10px;
+        font-size: 40px;
+        vertical-align: sub;
         color: grey;
     }
     </style>
@@ -69,24 +68,25 @@
                 <a class="navbar-brand" href="#">Que comemos?</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="planificarcomida.html">Home <span class="sr-only">(current)</span></a></li>
                 </ul>
                 <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                     <div class="input-group">
-                    <span class="input-group-btn">
+                    <div class="input-group">
+                        <span class="input-group-btn">
                     <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>
                     </span>
-                      <input id="busqueda_recetas" type="text" class="form-control" placeholder="Busque recetas o ingrese el id de la misma">
-                    </div><!-- /input-group -->
-                </form>                
+                        <input id="busqueda_recetas" type="text" class="form-control" placeholder="Busque recetas o ingrese el id de la misma">
+                    </div>
+                    <!-- /input-group -->
+                    <button type="text" id="nueva_receta" class="btn btn-success" url="nueva_receta.html">Nueva Receta</button>
+                </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <text style="font-weight:bold;"> Roberto Pereira</text><span class="caret"></span></a>
-                        <ul class="dropdown-menu">                            
+                        <ul class="dropdown-menu">
                             <li><a href="#">Mis Grupos</a></li>
                             <li><a href="#">Mis Recetas</a></li>
                             <li><a href="#">Planificar d&iacute;a</a></li>
@@ -135,10 +135,10 @@
                     </div>
                     <div class="panel-body">
                         <div id="sugerencia" style="text-align:center; vertical-align:middle; min-height: 10px; margin-top:5%;" class="col-sm-12">
-                        <span id="arrow_left" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                            <span id="arrow_left" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
                             <span id="elegir_turno">ELIJA ALGUN TURNO</span>
                         </div>
-                        <table style="text-align:center;" cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable">                        
+                        <table style="text-align:center;" cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable">
                         </table>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
         </div>
         <div class="page-header">
             <h1>Recetas Sugeridas</h1>
-        </div>        
+        </div>
         <br>
         <div class="row">
             <div class="col-md-6">
@@ -221,7 +221,6 @@
                     </div>
                 </div>
             </div>
-
             <script type="text/javascript">
             jQuery(document).ready(function() {
 
@@ -230,7 +229,7 @@
 
                 $('.selectpicker option[value="0"]').attr('selected', 'selected');
 
-                $('.selectpicker').selectpicker('refresh');              
+                $('.selectpicker').selectpicker('refresh');
 
                 $('.selectpicker').on('change', function() {
 
@@ -297,15 +296,14 @@
                 });
 
 
-                $(".container").on('click', '#boton_receta',function() {
-                   
-                   var attr = $(this).attr('checked');
-                   if (typeof attr !== typeof undefined && attr !== false) {
-                       $(this).removeAttr('checked');
-                   }                 
-                   else{
-                      $(this).attr('checked', 'checked');
-                   }
+                $(".container").on('click', '#boton_receta', function() {
+
+                    var attr = $(this).attr('checked');
+                    if (typeof attr !== typeof undefined && attr !== false) {
+                        $(this).removeAttr('checked');
+                    } else {
+                        $(this).attr('checked', 'checked');
+                    }
                 });
 
                 $('.container').on('click', '#planificar_dia', function() {
@@ -313,21 +311,26 @@
                     var texto = "Elegiste las recetas: ";
                     var attr2 = $(this).attr('checked');
                     var first = true;
-                    $("#dataTable td input[type='checkbox']").each(function(index, el) {                      
-                      //console.log(el);
-                      attr2 = $(this).attr('checked');
+                    $("#dataTable td input[type='checkbox']").each(function(index, el) {
+                        //console.log(el);
+                        attr2 = $(this).attr('checked');
 
 
-                      if (typeof attr2 !== typeof undefined && attr2 !== false) { 
-                          if (first) {texto += $(this).val(); first = false;} else{texto += ", " + $(this).val();}                                 
-                      }
+                        if (typeof attr2 !== typeof undefined && attr2 !== false) {
+                            if (first) {
+                                texto += $(this).val();
+                                first = false;
+                            } else {
+                                texto += ", " + $(this).val();
+                            }
+                        }
                     });
 
                     $("#myModal").modal("toggle");
                     $(".modal-body").html(texto);
                 });
 
-                $("#nueva_receta").on('click',function(event){
+                $("#nueva_receta").on('click', function(event) {
                     //console.log($(this).attr('url'));                    
                     $(location).attr('href', $(this).attr('url'));
                     return false;
