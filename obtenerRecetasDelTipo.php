@@ -5,6 +5,7 @@
 // Hardcodeo los datos para mostrar en la datatable con el formato correcto.
 
 $datos = [
+	'0' => null,
 	'a' => [0 => ['id_receta' => 1, 'receta' => 'Milanesa de ternera con fritas', 'calorias' => 5000, 'rating' => '****', 'boton' => '<input type="checkbox" class="toggle" name="receta" id = "boton_receta" value = "1">']
 		, 1 => ['id_receta' => 2, 'receta' => 'Ensalada', 'calorias' => 800, 'rating' => '***', 'boton' => '<input type="checkbox" class="toggle" name="receta" id = "boton_receta" value = "2">']
 		, 2 => ['id_receta' => 3, 'receta' => 'Ravioles de ricota con crema', 'calorias' => 4000, 'rating' => '*****', 'boton' => '<input type="checkbox" class="toggle" name="receta" id = "boton_receta" value = "3">'],
@@ -25,7 +26,8 @@ $datos = [
 
 //var_dump($datos[$_POST['tipo']]);
 
-if (isset($_POST['tipo'])) {
+if (isset($_POST['tipo']))
+{
 	echo json_encode($datos[$_POST['tipo']]);
 }
 

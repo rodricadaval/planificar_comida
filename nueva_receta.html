@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Planificar Comida</title>
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Bootstrap select JS-->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- DataTables JS-->
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap-select.js"></script>
+    <!-- DataTables CSS -->
+    <script src="//cdn.bootcss.com/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <!-- typeahead js -->
+    <script src="//cdn.bootcss.com/typeahead.js/0.11.1/bloodhound.min.js"></script>
+    <!-- bloodhound js -->
+    <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+    <!-- Bootstrap select CSS -->
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <style type="text/css">
+    body {
+        font-family: ubuntu;
+    }
+    
+    #busqueda_recetas {
+        width: 300px;
+    }
+    
+    #multiple-datasets .league-name {
+        margin: 0 20px 5px 20px;
+        padding: 3px 0;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    body {
+        padding: 50px;
+    }
+    </style>
+</head>
+
+<body rolle="document">
+    <nav class="navbar navbar-inverse  navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Que comemos?</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>
+                    </span>
+                        <input id="busqueda_recetas" type="text" class="form-control" placeholder="Busque recetas o ingrese el id de la misma">
+                    </div>
+                    <!-- /input-group -->
+                    <button type="text" id="nueva_receta" class="btn btn-success" url="nueva_receta.html">Nueva Receta</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <text style="font-weight:bold;"> Roberto Pereira</text><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mis Grupos</a></li>
+                            <li><a href="#">Mis Recetas</a></li>
+                            <li><a href="#">Planificar d&iacute;a</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Mis datos</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="login.html">Desconectarse</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p class="navbar-text navbar-right">
+                    <span style="margin-right:10px;" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                    <text style=" font-style:italic"> Logueado como</text>
+                    <a href="#" class="navbar-link"></a>
+                </p>
+                <!-- <text style="font-weight:bold; text-transform:uppercase;"> Roberto Pereira</text></a></p> -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Crear nueva receta</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!--<form method="POST">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon1">@</span>
+                                        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+                                        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                        <span class="input-group-addon">.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>-->
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="nombre_receta">Nombre de Receta:</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="nombre_receta" placeholder="Ingrese nombre">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="display:inline-block;" class="control-label col-sm-2" for="nombre_receta">Basada en receta?
+                                    <div style="vertical-align:-webkit-baseline-middle; display:inline;" class="checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                        </label>
+                                    </div>
+                                </label>
+                                <div class="col-sm-4">
+                                    <div id="multiple-datasets">
+                                        <input class="typeahead" type="text" placeholder="Escriba una receta">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--X20110 -->
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="pwd">Password:</label>
+                                <div class="col-sm-4">
+                                    <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Remember me</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-6">
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+    // instantiate the bloodhound suggestion engine
+    var countries = new Bloodhound({
+        datumTokenizer: function(countries) {
+            return Bloodhound.tokenizers.whitespace(countries.value);
+        },
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: {
+            url: "recetas.json",
+            filter: function(response) {
+                return response.countries;
+            }
+        }
+    });
+
+    // initialize the bloodhound suggestion engine
+    countries.initialize();
+
+    // instantiate the typeahead UI
+    $('.typeahead').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    }, {
+        name: 'countries',
+        displayKey: function(c) {
+            return c.vval;
+        },
+        source: countries.ttAdapter()
+    });
+});
+</script>
+
+</html>
