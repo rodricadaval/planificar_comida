@@ -2,190 +2,243 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Planificar Comida</title>
-    <!-- Bootstrap theme -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Bootstrap select JS-->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <!-- DataTables JS-->
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap JS -->
-    <script src="js/bootstrap-select.js"></script>
-    <!-- DataTables CSS -->
-    <script src="//cdn.bootcss.com/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-    <!-- typeahead js -->
-    <script src="//cdn.bootcss.com/typeahead.js/0.11.1/bloodhound.min.js"></script>
-    <!-- bloodhound js -->
-    <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="theme.css" rel="stylesheet">
-    <!-- Bootstrap select CSS -->
-    <link href="css/bootstrap-select.min.css" rel="stylesheet">
-    <style type="text/css">
-    body {
-        font-family: ubuntu;
-    }
-    
-    #busqueda_recetas {
-        width: 300px;
-    }
-    /*.twitter-typeahead {
-        width: 100%;
-    }*/
-    </style>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Planificar Comida</title>
+      <!-- Bootstrap theme -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Bootstrap select JS-->
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+      <!-- DataTables JS-->
+      <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Bootstrap JS -->
+      <script src="js/bootstrap-select.js"></script>
+      <!-- DataTables CSS -->
+      <!--<script href="//cdn.bootcss.com/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>-->
+      <script src="js/typeahead.js"></script>
+      <!-- typeahead js -->
+      <script src="//cdn.bootcss.com/typeahead.js/0.11.1/bloodhound.min.js"></script>
+      <!-- bloodhound js -->
+      <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" rel="stylesheet">
+      <!-- Bootstrap core CSS -->
+      <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="theme.css" rel="stylesheet">
+      <!-- Bootstrap select CSS -->
+      <link href="css/bootstrap-select.min.css" rel="stylesheet">
+      <style type="text/css">
+      body {
+            font-family: ubuntu;
+      }
+      
+      #busqueda_recetas {
+            width: 300px;
+      }
+      
+      .twitter-typeahead {
+            width: 100%;
+      }
+      </style>
 </head>
 
 <body rolle="document">
-    <nav class="navbar navbar-inverse  navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Que comemos?</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="planificarcomida.html">Home <span class="sr-only">(current)</span></a></li>
-                </ul>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="input-group">
-                        <span class="input-group-btn">
+      <nav class="navbar navbar-inverse  navbar-fixed-top">
+            <div class="container-fluid">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Que comemos?</a>
+                  </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                              <li class="active"><a href="planificarcomida.html">Home <span class="sr-only">(current)</span></a></li>
+                        </ul>
+                        <form class="navbar-form navbar-left" role="search">
+                              <div class="input-group">
+                                    <span class="input-group-btn">
                     <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>
                     </span>
-                        <input id="busqueda_recetas" type="text" class="form-control" placeholder="Busque recetas o ingrese el id de la misma">
-                    </div>
-                    <!-- /input-group -->
-                    <button type="text" id="nueva_receta" class="btn btn-success" url="nueva_receta.html">Nueva Receta</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <text style="font-weight:bold;"> Roberto Pereira</text><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Mis Grupos</a></li>
-                            <li><a href="#">Mis Recetas</a></li>
-                            <li><a href="#">Planificar d&iacute;a</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Mis datos</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="login.html">Desconectarse</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <p class="navbar-text navbar-right">
-                    <span style="margin-right:10px;" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                    <text style=" font-style:italic"> Logueado como</text>
-                    <a href="#" class="navbar-link"></a>
-                </p>
-                <!-- <text style="font-weight:bold; text-transform:uppercase;"> Roberto Pereira</text></a></p> -->
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Crear nueva receta</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" autocomplete="off">
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="nombre_receta">Nombre de Receta:</label>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="nombre_receta" placeholder="Ingrese nombre">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label style="display:inline-block;" class="control-label col-sm-2" for="typeahead_recetas">Basada en receta?
-                                    <div style="vertical-align:-webkit-baseline-middle; display:inline; margin-left:3px;" class="checkbox">
-                                        <label>
-                                            <input type="checkbox">
-                                        </label>
-                                    </div>
-                                </label>
-                                <div class="col-sm-4">
-                                    <div id="multiple-datasets">
-                                        <input id="typeahead_recetas" class="typeahead" type="text" placeholder=" Escriba una receta">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="tags">Tags</label>
-                                <div class="col-sm-4">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">#</div>
-                                        <input type="text" class="form-control" id="tags" placeholder="Ingrese sus preferencias">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--X20110 -->
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="pwd">Password:</label>
-                                <div class="col-sm-4">
-                                    <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-6">
-                                    <button type="submit" class="btn btn-primary">Crear</button>
-                                </div>
-                            </div>
+                                    <input id="busqueda_recetas" type="text" class="form-control" placeholder="Busque recetas o ingrese el id de la misma">
+                              </div>
+                              <!-- /input-group -->
+                              <button type="text" id="nueva_receta" class="btn btn-success" url="nueva_receta.html">Nueva Receta</button>
                         </form>
-                    </div>
-                </div>
+                        <ul class="nav navbar-nav navbar-right">
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                          <text style="font-weight:bold;"> Roberto Pereira</text><span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="#">Mis Grupos</a></li>
+                                          <li><a href="#">Mis Recetas</a></li>
+                                          <li><a href="#">Planificar d&iacute;a</a></li>
+                                          <li role="separator" class="divider"></li>
+                                          <li><a href="#">Mis datos</a></li>
+                                          <li role="separator" class="divider"></li>
+                                          <li><a href="login.html">Desconectarse</a></li>
+                                    </ul>
+                              </li>
+                        </ul>
+                        <p class="navbar-text navbar-right">
+                              <span style="margin-right:10px;" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                              <text style=" font-style:italic"> Logueado como</text>
+                              <a href="#" class="navbar-link"></a>
+                        </p>
+                        <!-- <text style="font-weight:bold; text-transform:uppercase;"> Roberto Pereira</text></a></p> -->
+                  </div>
+                  <!-- /.navbar-collapse -->
             </div>
-        </div>
-    </div>
+            <!-- /.container-fluid -->
+      </nav>
+      <div class="container-fluid">
+            <div class="row">
+                  <div class="col-lg-12">
+                        <div class="panel panel-info">
+                              <div class="panel-heading">
+                                    <h3 class="panel-title">Crear nueva receta</h3>
+                              </div>
+                              <div class="panel-body">
+                                    <form id="formulario_creacion" class="form-horizontal" method="POST" action="#" role="form" autocomplete="off">
+                                          <div class="form-group">
+                                                <label class="control-label col-sm-2" for="nombre_receta">Nombre de Receta:</label>
+                                                <div class="col-sm-4">
+                                                      <input type="text" class="form-control" id="nombre_receta" name="nombre_receta" placeholder="Ingrese nombre">
+                                                </div>
+                                          </div>
+                                          <div class="form-group">
+                                                <label style="display:inline-block;" class="control-label col-sm-2" for="typeahead">Basada en receta?
+                                                      <div style="vertical-align:-webkit-baseline-middle; display:inline; margin-left:3px;" class="checkbox">
+                                                            <label>
+                                                                  <input type="checkbox">
+                                                            </label>
+                                                      </div>
+                                                </label>
+                                                <div class="col-sm-4">
+                                                      <div id="multiple-datasets">
+                                                            <input id="typeahead_recetas" id="typeahead_receta" class="typeahead" type="text" placeholder=" Escriba una receta">
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="form-group">
+                                                <label class="control-label col-sm-2" for="tags">Tags</label>
+                                                <div class="col-sm-4">
+                                                      <div class="input-group">
+                                                            <div class="input-group-addon">#</div>
+                                                            <input type="text" name="preferencias" class="form-control" id="tags" placeholder="Ingrese sus preferencias (separe con comas)">
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <!--X20110 -->
+                                          <div class="form-group">
+                                                <label class="control-label col-sm-2" for="procedimiento">Procedimiento:</label>
+                                                <div class="col-sm-4">
+                                                      <textarea class="form-control" name="procedimiento" id="procedimiento" placeholder="Escriba los pasos para la elaboraci&oacute;n de la receta."></textarea>
+                                                </div>
+                                          </div>
+                                          <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-6">
+                                                      <button type="submit" class="btn btn-primary">Crear</button>
+                                                </div>
+                                          </div>
+                                    </form>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">Confirmacion de creacion</h4>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                              <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar Receta</button>
+                        </div>
+                  </div>
+            </div>
+      </div>
 </body>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 
-    // instantiate the bloodhound suggestion engine
-    var countries = new Bloodhound({
-        datumTokenizer: function(countries) {
-            return Bloodhound.tokenizers.whitespace(countries.value);
-        },
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: {
-            url: "recetas.json",
-            filter: function(response) {
-                return response.countries;
+      $("#typeahead_recetas").attr('disabled', 'disabled').css('background-color', '#E0E0E0');
+      // constructs the suggestion engine
+
+      var substringMatcher = function(strs) {
+            return function findMatches(q, cb) {
+                  var matches, substringRegex;
+
+                  // an array that will be populated with substring matches
+                  matches = [];
+
+                  // regex used to determine if a string contains the substring `q`
+                  substrRegex = new RegExp(q, 'i');
+
+                  // iterate through the pool of strings and for any string that
+                  // contains the substring `q`, add it to the `matches` array
+                  $.each(strs, function(i, str) {
+                        if (substrRegex.test(str)) {
+                              matches.push(str);
+                        }
+                  });
+
+                  cb(matches);
+            };
+      };
+
+      var recetas = ['Milanesa a la napolitana', 'Milanesa con pure de papa', 'Entrania', 'Churrasquitos con pure', 'Papas fritas', 'Sorrentinos', 'Canelones', 'Pizza', 'Empanadas', 'Ensalada con papa y huevo', 'Tarta de verdura', 'Tarta de choclo', 'Tarta de jamon y queso', 'Sandwich de milanesa', 'Sandwich completo', 'Fideos con manteca', 'Fideos a la bolognesa', 'Noquis', 'Filet de merluza', 'Caviar', 'Salmon', 'Bife de chorizo', 'Chorizo', 'Calzon', 'Milapizza'];
+
+
+      $('.typeahead').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 2
+      }, {
+            name: 'recetas',
+            source: substringMatcher(recetas)
+      });
+
+      $(".checkbox input").on('click', function(event) {
+
+            var attr = $(this).attr('checked');
+            if (typeof attr !== typeof undefined && attr !== false) {
+                  $(this).removeAttr('checked');
+                  $("#typeahead_recetas").attr('disabled', 'disabled').css('background-color', '#E0E0E0').val('');
+            } else {
+                  $(this).attr('checked', 'checked');
+                  $("#typeahead_recetas").removeAttr('disabled').css('background-color', 'white');
+                  //.css('background-color', 'grey'); 
+
             }
-        }
-    });
+      });
 
-    // initialize the bloodhound suggestion engine
-    countries.initialize();
+      $("#formulario_creacion").on('submit', function(event) {
+            event.preventDefault();
 
-    // instantiate the typeahead UI
-    $('.typeahead').typeahead({
-        hint: true,
-        highlight: true,
-        minLength: 1
-    }, {
-        name: 'countries',
-        displayKey: function(c) {
-            return c.vval;
-        },
-        source: countries.ttAdapter()
-    });
+            console.log($(this).serialize());
+
+            var texto = "Se van a enviar los siguientes datos: " + $(this).serialize();
+
+            $("#myModal").modal("toggle");
+            $(".modal-body").html(texto);            
+      });
+
+
+
 });
 </script>
 
